@@ -1,11 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Premium Master English Lists
     const masterQuestions = [
-        { id: 1, text: "✨ First Impression naton sa isa't isa?" },
-        { id: 2, text: "🍕 Ano ang ideal first date food para sa imo?" },
-        { id: 3, text: "💭 Isa ka thing nga na-appreciate mo sa akon?" },
-        { id: 4, text: "🎵 Ano nga kanta ang naga-remind sa imo sa akon?" },
-        { id: 5, text: "🗺️ Diin ang dream travel destination mo?" },
-        { id: 6, text: "☕ Coffee date ukon late night drive?" }
+        { id: 1, text: "🍓 Sweet or Savory?" },
+        { id: 2, text: "🌙 Night date or Morning date?" },
+        { id: 3, text: "🍿 Netflix or Karaoke?" },
+        { id: 4, text: "📚 Bookstore or Mall?" },
+        { id: 5, text: "🌧️ Rainy-day date or Sunny-day date?" },
+        { id: 6, text: "🧋 Milk tea or Coffee?" },
+        { id: 7, text: "🚗 Road trip or Staycation?" },
+        { id: 8, text: "🌹 Flowers or Handwritten letters?" },
+        { id: 9, text: "🎢 Theme park or Museum?" },
+        { id: 10, text: "📸 Taking pictures or Living in the moment?" },
+        { id: 11, text: "🍔 Fast food or Fancy restaurant?" },
+        { id: 12, text: "🐱 Cats or Dogs?" },
+        { id: 13, text: "🎂 Cake or Ice cream?" },
+        { id: 14, text: "💃 Dancing or Singing?" },
+        { id: 15, text: "🧩 Board games or Video games?" },
+        { id: 16, text: "🌅 What's your ideal first date?" },
+        { id: 17, text: "☕ Coffee date, dinner date, picnic, or arcade?" },
+        { id: 18, text: "🍕 What's your go-to comfort food?" },
+        { id: 19, text: "🎬 Movies at home or going out on an adventure?" },
+        { id: 20, text: "🌊 Beach, mountains, or city lights for a date?" },
+        { id: 21, text: "🎵 What's your favorite music genre or artist?" }
     ];
 
     let selectedQuestionIds = [];
@@ -14,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentQuestionIndex = 0;
     let userData = {};
 
-    // DOM Elements Declarations
+    // Elements
     const senderForm = document.getElementById("senderForm");
     const screenLanding = document.getElementById("screen-landing");
     const screenQuestions = document.getElementById("screen-questions");
@@ -33,10 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const recipientAnswerField = document.getElementById("recipientAnswerField");
     const viewerStepCounter = document.getElementById("viewerStepCounter");
 
-    // 1. Transition: Landing to Question Picker
+    // 1. Landing View Controls
     senderForm.addEventListener("submit", (e) => {
         e.preventDefault();
-
         userData = {
             senderName: document.getElementById("senderName").value.trim(),
             senderEmail: document.getElementById("senderEmail").value.trim(),
@@ -50,28 +65,26 @@ document.addEventListener("DOMContentLoaded", () => {
         screenQuestions.classList.add("active");
     });
 
-    // 2. Render Cards Generation Engine
+    // 2. Dynamic Card Injection
     function renderQuestionCards() {
         questionsGrid.innerHTML = "";
-        
         masterQuestions.forEach(q => {
             const card = document.createElement("div");
             card.className = "glass-card question-card";
             card.style.cursor = "pointer";
-            card.style.marginBottom = "14px";
+            card.style.marginBottom = "12px";
+            card.style.padding = "18px 20px";
             card.style.transition = "all 0.2s ease";
             card.innerHTML = `
                 <div style="display:flex; justify-content:space-between; align-items:center; text-align:left;">
-                    <p style="font-weight:500; font-size:0.95rem; padding-right:10px; margin:0;">${q.text}</p>
+                    <p style="font-weight:500; font-size:0.95rem; margin:0; color:var(--text-dark);">${q.text}</p>
                     <span class="checkbox-indicator" style="color: #ccc;"><i class="fa-regular fa-circle"></i></span>
                 </div>
             `;
 
             card.addEventListener("click", () => {
                 const idIndex = selectedQuestionIds.indexOf(q.id);
-                
                 if (idIndex > -1) {
-                    // Remove card state arrays
                     selectedQuestionIds.splice(idIndex, 1);
                     const textIndex = selectedQuestionTexts.indexOf(q.text);
                     if (textIndex > -1) selectedQuestionTexts.splice(textIndex, 1);
@@ -81,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     card.querySelector(".checkbox-indicator").innerHTML = `<i class="fa-regular fa-circle"></i>`;
                     card.querySelector(".checkbox-indicator").style.color = "#ccc";
                 } else {
-                    // Secure capping validation check
                     if (selectedQuestionIds.length < 3) {
                         selectedQuestionIds.push(q.id);
                         selectedQuestionTexts.push(q.text);
@@ -91,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
 
-                questionCounter.textContent = `❤️ Selected: ${selectedQuestionIds.length} / 3`;
+                questionCounter.textContent = `✨ Selected: ${selectedQuestionIds.length} / 3`;
                 
                 if (selectedQuestionIds.length === 3) {
                     btnContinueToFlow.disabled = false;
@@ -101,19 +113,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     btnContinueToFlow.style.opacity = "0.5";
                 }
             });
-
             questionsGrid.appendChild(card);
         });
     }
 
-    // 3. Transition: Question Selection to Recipient Welcome Intro
+    // 3. Routing Loops
     btnContinueToFlow.addEventListener("click", () => {
         senderDisplayName.textContent = userData.senderName;
         screenQuestions.classList.remove("active");
         screenRecipientIntro.classList.add("active");
     });
 
-    // 4. Transition: Recipient Welcome Intro to Question Viewer Matrix
     btnStartAnswering.addEventListener("click", () => {
         screenRecipientIntro.classList.remove("active");
         screenQuestionViewer.classList.add("active");
@@ -121,29 +131,25 @@ document.addEventListener("DOMContentLoaded", () => {
         loadActiveQuestionIntoView();
     });
 
-    // 5. Active Loader Loop Engine
     function loadActiveQuestionIntoView() {
-        recipientAnswerField.value = ""; // Auto clean fields
-        viewerStepCounter.textContent = `Question ${currentQuestionIndex + 1} of 3`;
+        recipientAnswerField.value = ""; 
+        viewerStepCounter.textContent = `Prompt ${currentQuestionIndex + 1} of 3`;
         currentQuestionText.textContent = selectedQuestionTexts[currentQuestionIndex];
         
         if (currentQuestionIndex === 2) {
-            btnNextQuestion.innerHTML = `Unlock Final Surprise <i class="fa-solid fa-lock-open"></i>`;
+            btnNextQuestion.innerHTML = `Complete Setup <i class="fa-solid fa-lock-open"></i>`;
         } else {
-            btnNextQuestion.innerHTML = `Next Question <i class="fa-solid fa-chevron-right"></i>`;
+            btnNextQuestion.innerHTML = `Next Prompt <i class="fa-solid fa-chevron-right"></i>`;
         }
     }
 
-    // 6. Loop Action Multiplier Handler
     btnNextQuestion.addEventListener("click", () => {
         const currentAnswer = recipientAnswerField.value.trim();
-        
         if (currentAnswer === "") {
-            alert("Oops! Please write an answer first before continuing! 🌸");
+            alert("Please fill in your answer before moving to the next prompt! ✨");
             return;
         }
 
-        // Save target prompt index records
         recipientAnswers[`question_${currentQuestionIndex + 1}`] = {
             prompt: selectedQuestionTexts[currentQuestionIndex],
             answer: currentAnswer
@@ -153,9 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
             currentQuestionIndex++;
             loadActiveQuestionIntoView();
         } else {
-            console.log("🌸 Aniela Co. System Log - Complete Answers Stored:", recipientAnswers);
-            alert("Bwas naman ang pinaka-romantic part, ang Step 5: YES or NO interactive game! Stay tuned, CEO!");
-            // Diri ma insert ang final matching page bwas!
+            console.log("Aniela Co. Final Records Saved:", recipientAnswers);
+            alert("Excellent! All answers have been saved into the vault. Next step ready whenever you are! 🚀");
         }
     });
 });
