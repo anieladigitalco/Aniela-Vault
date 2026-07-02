@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DateBloom | Premium Date Invitations</title>
+    <title>Aniela Vault | Interactive Experiences</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap" rel="stylesheet">
@@ -22,15 +22,15 @@
         <!-- SCREEN 1: LANDING & SENDER FORM -->
         <section class="screen active" id="screen-landing">
             <div class="brand-header">
-                <span class="brand-badge">🌸 DateBloom</span>
-                <h1 class="brand-tagline">Create Your Date Invitation</h1>
-                <p class="brand-subtext">Craft a beautiful, premium experience for someone special.</p>
+                <span class="brand-badge">✨ Aniela Vault</span>
+                <h1 class="brand-tagline">Interactive Curator</h1>
+                <p class="brand-subtext">Build a premium, customized experience profile.</p>
             </div>
 
             <div class="glass-card">
                 <div class="avatar-wrapper">
-                    <div class="brand-avatar-placeholder">
-                        <i class="fa-solid fa-heart-envelope" style="font-size: 2.2rem; color: var(--deep-pink); animation: heartbeat 1.5s infinite;"></i>
+                    <div class="brand-avatar-frame">
+                        <span style="font-size: 2.8rem; animation: float 3s ease-in-out infinite alternate;">🐻</span>
                     </div>
                 </div>
 
@@ -60,58 +60,57 @@
         <!-- SCREEN 2: QUESTION SELECTION -->
         <section class="screen" id="screen-questions">
             <div class="brand-header">
-                <span class="brand-badge" id="questionCounter">❤️ Selected: 0 / 3</span>
-                <h1 class="brand-tagline">Choose 3 Questions</h1>
-                <p class="brand-subtext">Pick the perfect prompts for <span class="recipient-display-name" style="font-weight:600; color:var(--deep-pink);"></span></p>
+                <span class="brand-badge" id="questionCounter">✨ Selected: 0 / 3</span>
+                <h1 class="brand-tagline">Select 3 Prompts</h1>
+                <p class="brand-subtext">Pick the perfect topics for <span class="recipient-display-name" style="font-weight:600; color:var(--deep-pink);"></span></p>
             </div>
 
             <div class="questions-grid" id="questionsGrid"></div>
 
             <button type="button" class="btn btn-primary" id="btnContinueToFlow" disabled style="opacity: 0.5; margin-top: 20px;">
-                Perfect! Continue <i class="fa-solid fa-arrow-right"></i>
+                Confirm & Continue <i class="fa-solid fa-arrow-right"></i>
             </button>
         </section>
 
-        <!-- ✨ NEW! SCREEN 3: RECIPIENT WELCOME INTRO -->
+        <!-- SCREEN 3: RECIPIENT WELCOME INTRO -->
         <section class="screen" id="screen-recipient-intro">
-            <div class="brand-header animate-fade-in">
-                <span class="brand-badge">🌸 Invitation Unlocked</span>
-                <h1 class="brand-tagline">Hi <span class="recipient-display-name"></span>!</h1>
+            <div class="brand-header">
+                <span class="brand-badge">🔒 Session Unlocked</span>
+                <h1 class="brand-tagline">Hello <span class="recipient-display-name"></span>!</h1>
             </div>
 
             <div class="glass-card">
                 <div class="avatar-wrapper">
-                    <div class="heart-container-pulse">
-                        <i class="fa-solid fa-heart animate-pop" style="font-size: 3rem; color: var(--primary-pink);"></i>
+                    <div class="brand-avatar-frame">
+                        <span style="font-size: 2.8rem; animation: heartbeat 1.5s infinite;">🐻</span>
                     </div>
                 </div>
                 <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px; font-weight: 500;">
-                    <span id="senderDisplayName" style="color: var(--deep-pink); font-weight: 700;"></span> has prepared something very special just for you...
+                    <span id="senderDisplayName" style="color: var(--deep-pink); font-weight: 700;"></span> has initialized a personalized set of questions for you.
                 </p>
                 <button type="button" class="btn btn-primary" id="btnStartAnswering">
-                    Open Invitation <i class="fa-solid fa-envelope-open-heart"></i>
+                    Start Session <i class="fa-solid fa-bolt"></i>
                 </button>
             </div>
         </section>
 
-        <!-- ✨ NEW! SCREEN 4: INDIVIDUAL QUESTION DISPLAY LOOP -->
+        <!-- SCREEN 4: INDIVIDUAL QUESTION DISPLAY LOOP -->
         <section class="screen" id="screen-question-viewer">
             <div class="brand-header">
-                <span class="brand-badge" id="viewerStepCounter">Question 1 of 3</span>
-                <h1 class="brand-tagline">For You...</h1>
+                <span class="brand-badge" id="viewerStepCounter">Prompt 1 of 3</span>
+                <h1 class="brand-tagline">Let's Answer...</h1>
             </div>
 
             <div class="glass-card text-left">
-                <!-- Diri ma flash ang text sang active selected question -->
-                <h3 id="currentQuestionText" style="font-size: 1.15rem; font-weight: 600; line-height: 1.5; margin-bottom: 20px; text-align: center; color: var(--text-dark);"></h3>
+                <h3 id="currentQuestionText" style="font-size: 1.2rem; font-weight: 600; line-height: 1.5; margin-bottom: 24px; text-align: center; color: var(--text-dark);"></h3>
                 
                 <div class="input-group" style="margin-bottom: 0;">
-                    <label for="recipientAnswerField"><i class="fa-regular fa-comment-dots"></i> Your Answer</label>
-                    <textarea id="recipientAnswerField" rows="4" placeholder="Write your heartfelt answer here..." required style="width:100%; padding:14px; background:rgba(255,255,255,0.5); border:1px solid rgba(255,105,180,0.2); border-radius:12px; font-size:1rem; outline:none; resize:none; font-family:inherit; transition:all 0.3s;"></textarea>
+                    <label for="recipientAnswerField"><i class="fa-regular fa-comment-dots"></i> Type your response here:</label>
+                    <textarea id="recipientAnswerField" rows="4" placeholder="Write your response..." required style="width:100%; padding:14px; background:rgba(255,255,255,0.5); border:1px solid rgba(255,105,180,0.2); border-radius:12px; font-size:1rem; outline:none; resize:none; font-family:inherit; transition:all 0.3s;"></textarea>
                 </div>
 
-                <button type="button" class="btn btn-primary" id="btnNextQuestion" style="margin-top: 20px;">
-                    Next Question <i class="fa-solid fa-chevron-right"></i>
+                <button type="button" class="btn btn-primary" id="btnNextQuestion" style="margin-top: 25px;">
+                    Next Prompt <i class="fa-solid fa-chevron-right"></i>
                 </button>
             </div>
         </section>
@@ -119,7 +118,7 @@
     </main>
 
     <footer class="brand-footer">
-        <p>Made with <span class="heart-pulse">❤️</span> by <span class="company-name">Aniela Digital Co.</span></p>
+        <p>Powered by <span class="company-name">Aniela Digital Co.</span></p>
     </footer>
 
     <script src="script.js"></script>
