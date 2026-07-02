@@ -3,71 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DateBloom v2</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>DateBloom | Premium Date Invitations</title>
+    
+    <!-- 🌸 Google Fonts para sa Luxury Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- 🌟 FontAwesome para sa Matining nga mga Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 🎨 Ang Custom CSS Wrapper Naton -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="background-hearts"></div>
-
-    <div class="container">
-        
-        <section id="screen-1" class="screen">
-            <h1>DateBloom</h1>
-            <p class="subtitle">Create a magical date invitation ✨</p>
-            
-            <form id="senderForm">
-                <label for="senderName">Your Name</label>
-                <input type="text" id="senderName" placeholder="Enter your name" required>
-
-                <label for="senderEmail">Your Email</label>
-                <input type="email" id="senderEmail" placeholder="Enter your email" required>
-
-                <label for="receiverName">Their Name</label>
-                <input type="text" id="receiverName" placeholder="Enter your crush's name" required>
-
-                <button type="submit">Next 🌸</button>
-            </form>
-            <div class="footer">Made with 💕 by Aniela Digital Co.</div>
-        </section>
-
-        <section id="screen-2" class="screen hidden">
-            <h1>Choose Questions</h1>
-            <p class="subtitle">Select exactly <span class="highlight">3 questions</span> for them ❤️</p>
-            
-            <div class="counter-badge">
-                <span id="select-count">0</span>/3 Selected
-            </div>
-
-            <div class="cards-grid">
-                <div class="question-card" data-id="1">
-                    <h3>✨ First Impression</h3>
-                    <p>What did you honestly think of me first?</p>
-                    <span class="heart-icon">❤️</span>
-                </div>
-                <div class="question-card" data-id="2">
-                    <h3>🍕 Perfect Date</h3>
-                    <p>What is your absolute dream dinner scenario?</p>
-                    <span class="heart-icon">❤️</span>
-                </div>
-                <div class="question-card" data-id="3">
-                    <h3>🔮 Future Vibes</h3>
-                    <p>Where do you see us going next?</p>
-                    <span class="heart-icon">❤️</span>
-                </div>
-                <div class="question-card" data-id="4">
-                    <h3>💭 Secret Thoughts</h3>
-                    <p>Tell me a secret you haven't shared yet!</p>
-                    <span class="heart-icon">❤️</span>
-                </div>
-            </div>
-
-            <button id="next-to-screen3" class="disabled-btn" disabled>Continue 💖</button>
-        </section>
-
+    <!-- ✨ Ambient Blur Background Orbs -->
+    <div class="ambient-background">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
     </div>
 
+    <!-- 📱 Main Container (Perfect for Mobile Responsive Look) -->
+    <main class="app-container">
+        
+        <!-- ==========================================
+             SCREEN 1: LANDING & SENDER FORM (STEP 1)
+             ========================================== -->
+        <section class="screen active" id="screen-landing">
+            
+            <!-- Company & Product Header -->
+            <div class="brand-header">
+                <span class="brand-badge">🌸 DateBloom</span>
+                <h1 class="brand-tagline">Create Your Date Invitation</h1>
+                <p class="brand-subtext">Craft a beautiful, premium experience for someone special.</p>
+            </div>
+
+            <!-- Premium Glassmorphism Card -->
+            <div class="glass-card">
+                <!-- Cute Mascot Placement -->
+                <div class="avatar-wrapper">
+                    <img src="assets/bear.gif" alt="Cute Bear" class="brand-avatar">
+                </div>
+
+                <!-- Sender Data Capture Form -->
+                <form id="senderForm" autocomplete="off">
+                    <div class="input-group">
+                        <label for="senderName"><i class="fa-regular fa-user"></i> Your Name</label>
+                        <input type="text" id="senderName" placeholder="e.g., Angel" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="senderEmail"><i class="fa-regular fa-envelope"></i> Your Email</label>
+                        <input type="email" id="senderEmail" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="recipientName"><i class="fa-solid fa-heart-pulse"></i> Recipient's Name</label>
+                        <input type="text" id="recipientName" placeholder="e.g., Sophia" required>
+                    </div>
+
+                    <!-- Executive Action Button -->
+                    <button type="submit" class="btn btn-primary" id="btnContinueToQuestions">
+                        Continue <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- NOTE: Ang Screen 2 (Question Selection) tubtob Screen 6 isalaksak naton diri samtang naga-abante ang development! -->
+
+    </main>
+
+    <!-- 🏢 Aniela Digital Co. Official Corporate Footer -->
+    <footer class="brand-footer">
+        <p>Made with <span class="heart-pulse">❤️</span> by <span class="company-name">Aniela Digital Co.</span></p>
+    </footer>
+
+    <!-- 🧠 Custom JavaScript Logic -->
     <script src="script.js"></script>
 </body>
 </html>
