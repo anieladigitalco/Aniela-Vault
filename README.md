@@ -1,28 +1,43 @@
-# 🌸 DateBloom  🌸
-> **Created by Aniela Digital Co.**
+# 🌸 DateBloom v2.0
 
-Welcome to **DateBloom**, a beautiful, single-page web app designed to create magical, interactive date invitations. Built with love, soft glassmorphism, and smooth animations. ✨
+> A premium, interactive single-page web application that crafts beautiful, custom digital date invitations. Engineered for seamless romance mechanics and high-end user experiences.
 
----
-
-## 💖 Features
-* 🧊 **Glassmorphism UI** – Modern, sleek translucent card container.
-* 🎈 **Floating Background** – Aesthetic heart particles drifting smoothly.
-* 🎬 **Netflix-Style Selection** – Interactive card selection where users choose exactly 3 questions.
-* 🚀 **SPA Architecture** – Single Page Application handling transitions cleanly via JavaScript (perfect for GitHub Pages).
+Developed and maintained by **Aniela Digital Co.** 🚀
 
 ---
 
-## 🛠️ Tech Stack
-* **HTML5** – Semantic structure.
-* **CSS3** – Custom keyframe animations, grid layouts, and custom properties.
-* **JavaScript (ES6)** – State management, event handling, and dynamic screen routing.
+## 📅 Development Roadmap
+
+- [x] **Version 2.0 (MVP Phase 1)**
+  - [x] Premium Minimalist UI & Glassmorphism Design
+  - [x] Responsive Sender Data Capture (Mobile-first optimization)
+  - [x] Dynamic Multi-Card Question Picker Framework (Max 3 Prompts)
+- [ ] **Version 2.1 (Recipient Architecture)**
+  - [ ] Individualized recipient multi-page layout
+  - [ ] "Catch Me If You Can" interactive button engine
+- [ ] **Version 2.2 (Backend Integration & Ecosystem Expansion)**
+  - [ ] Formspree endpoint mapping for secure data ingestion
+  - [ ] Make.com webhook triggers for custom email notifications
 
 ---
 
-## 📂 File Structure
+## 🎨 System Theme & Aesthetic Architecture
+
+We don't build basic projects; we build beautiful experiences. The suite utilizes a luxury color palette engineered for deep aesthetic engagement:
+
+*   **Primary Palette**: Soft Pink (`#FF69B4`), Deep Fuchsia (`#FF1493`), and Subtle Lavender (`#9370DB`).
+*   **Design Framework**: Modern Glassmorphism using `backdrop-filter: blur()`, linear glowing orbs, and dynamic CSS ambient transitions.
+*   **Typography**: Clean engineering with *Plus Jakarta Sans* combined with elegant accent scripting via *Dancing Script*.
+
+---
+
+## 📂 Production Folder Structure
+
 ```text
-├── index.html       # The main single-page layout (Screens 1, 2, etc.)
-├── style.css        # Lovely pink gradients, grid layouts, and active states
-├── script.js        # Form handling and question tracking state machine
-└── README.md        # You are here! 💕
+DateBloom/
+├── index.html       # Single-Page Application (SPA) layout
+├── style.css        # Core design engine & responsive layout definitions
+├── script.js       # Dynamic DOM rendering, state controls, & navigation
+└── assets/          # Digital media directory
+    ├── bear.gif     # Reactive branding avatar
+    └── logo.png     # Official Corporate Mark
