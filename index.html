@@ -6,7 +6,7 @@
     <title>DateBloom | Premium Date Invitations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,7 +29,6 @@
 
             <div class="glass-card">
                 <div class="avatar-wrapper">
-                    <!-- TIP: Siguraduha nga may bear.gif ka sa assets folder para magpakita ini! -->
                     <img src="assets/bear.gif" alt="🐻" class="brand-avatar">
                 </div>
 
@@ -56,9 +55,7 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             ✨ NEW! SCREEN 2: QUESTION SELECTION
-             ========================================== -->
+        <!-- SCREEN 2: QUESTION SELECTION -->
         <section class="screen" id="screen-questions">
             <div class="brand-header">
                 <span class="brand-badge" id="questionCounter">❤️ Selected: 0 / 3</span>
@@ -66,9 +63,8 @@
                 <p class="brand-subtext">Pick the perfect prompts for <span id="dynamicRecipient" style="font-weight:600; color:var(--deep-pink);"></span></p>
             </div>
 
-            <!-- Dynamic Question Cards Wrapper -->
             <div class="questions-grid" id="questionsGrid">
-                <!-- Sila ang magguwa halin sa JavaScript utilities naton -->
+                <!-- Dynamic cards mapuno halin sa JS -->
             </div>
 
             <button type="button" class="btn btn-primary" id="btnContinueToFlow" disabled style="opacity: 0.5; margin-top: 20px;">
