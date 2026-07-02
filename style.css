@@ -114,21 +114,18 @@ body {
     margin-bottom: 24px;
 }
 
-/* 🐻 Custom Placeholder Ring */
-.brand-avatar-placeholder {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 192, 203, 0.3);
+/* 🐻 Clean emoji frame structure */
+.brand-avatar-frame {
+    width: 85px;
+    height: 85px;
+    background: rgba(255, 255, 255, 0.6);
     border: 2px dashed var(--primary-pink);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-}
-
-.heart-container-pulse {
-    animation: float 4s ease-in-out infinite alternate;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.1);
 }
 
 .input-group {
@@ -206,19 +203,12 @@ body {
     color: var(--text-dark);
 }
 
-.heart-pulse {
-    display: inline-block;
-    animation: heartbeat 1.2s infinite;
-    color: var(--deep-pink);
-}
-
-/* 📱 SCREEN 2: QUESTIONS SPECIFIC */
 .questions-grid {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 20px;
-    max-height: 280px;
+    max-height: 320px;
     overflow-y: auto;
     padding-right: 4px;
 }
@@ -237,16 +227,11 @@ body {
 
 .question-card {
     border: 2px solid rgba(255, 255, 255, 0.4) !important;
-    transform: scale(1);
 }
 
 .question-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
-}
-
-.question-card:active {
-    transform: scale(0.98);
 }
 
 .checkbox-indicator {
@@ -258,7 +243,7 @@ body {
 
 @keyframes float {
     0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(-20px) scale(1.05); }
+    100% { transform: translateY(-10px) scale(1.05); }
 }
 
 @keyframes heartbeat {
