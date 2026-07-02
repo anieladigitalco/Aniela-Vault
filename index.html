@@ -4,49 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DateBloom | Premium Date Invitations</title>
-    
-    <!-- 🌸 Google Fonts para sa Luxury Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- 🌟 FontAwesome para sa Matining nga mga Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- 🎨 Ang Custom CSS Wrapper Naton -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ✨ Ambient Blur Background Orbs -->
     <div class="ambient-background">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
     </div>
 
-    <!-- 📱 Main Container (Perfect for Mobile Responsive Look) -->
     <main class="app-container">
         
-        <!-- ==========================================
-             SCREEN 1: LANDING & SENDER FORM (STEP 1)
-             ========================================== -->
+        <!-- SCREEN 1: LANDING & SENDER FORM -->
         <section class="screen active" id="screen-landing">
-            
-            <!-- Company & Product Header -->
             <div class="brand-header">
                 <span class="brand-badge">🌸 DateBloom</span>
                 <h1 class="brand-tagline">Create Your Date Invitation</h1>
                 <p class="brand-subtext">Craft a beautiful, premium experience for someone special.</p>
             </div>
 
-            <!-- Premium Glassmorphism Card -->
             <div class="glass-card">
-                <!-- Cute Mascot Placement -->
                 <div class="avatar-wrapper">
-                    <img src="assets/bear.gif" alt="Cute Bear" class="brand-avatar">
+                    <!-- TIP: Siguraduha nga may bear.gif ka sa assets folder para magpakita ini! -->
+                    <img src="assets/bear.gif" alt="🐻" class="brand-avatar">
                 </div>
 
-                <!-- Sender Data Capture Form -->
                 <form id="senderForm" autocomplete="off">
                     <div class="input-group">
                         <label for="senderName"><i class="fa-regular fa-user"></i> Your Name</label>
@@ -63,24 +49,39 @@
                         <input type="text" id="recipientName" placeholder="e.g., Sophia" required>
                     </div>
 
-                    <!-- Executive Action Button -->
-                    <button type="submit" class="btn btn-primary" id="btnContinueToQuestions">
+                    <button type="submit" class="btn btn-primary">
                         Continue <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- NOTE: Ang Screen 2 (Question Selection) tubtob Screen 6 isalaksak naton diri samtang naga-abante ang development! -->
+        <!-- ==========================================
+             ✨ NEW! SCREEN 2: QUESTION SELECTION
+             ========================================== -->
+        <section class="screen" id="screen-questions">
+            <div class="brand-header">
+                <span class="brand-badge" id="questionCounter">❤️ Selected: 0 / 3</span>
+                <h1 class="brand-tagline">Choose 3 Questions</h1>
+                <p class="brand-subtext">Pick the perfect prompts for <span id="dynamicRecipient" style="font-weight:600; color:var(--deep-pink);"></span></p>
+            </div>
+
+            <!-- Dynamic Question Cards Wrapper -->
+            <div class="questions-grid" id="questionsGrid">
+                <!-- Sila ang magguwa halin sa JavaScript utilities naton -->
+            </div>
+
+            <button type="button" class="btn btn-primary" id="btnContinueToFlow" disabled style="opacity: 0.5; margin-top: 20px;">
+                Perfect! Continue <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
 
     </main>
 
-    <!-- 🏢 Aniela Digital Co. Official Corporate Footer -->
     <footer class="brand-footer">
         <p>Made with <span class="heart-pulse">❤️</span> by <span class="company-name">Aniela Digital Co.</span></p>
     </footer>
 
-    <!-- 🧠 Custom JavaScript Logic -->
     <script src="script.js"></script>
 </body>
 </html>
