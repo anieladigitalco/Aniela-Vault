@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Repository Array para sa mga Premium Prompts naton
     const masterQuestions = [
         { id: 1, text: "✨ First Impression naton sa isa't isa?" },
         { id: 2, text: "🍕 Ano ang ideal first date food para sa imo?" },
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnContinueToFlow = document.getElementById("btnContinueToFlow");
     const dynamicRecipient = document.getElementById("dynamicRecipient");
 
-    // 1. Transition halin sa Landing padulong sa Question Picker
     senderForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -30,20 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
             recipientName: document.getElementById("recipientName").value.trim()
         };
 
-        // Personalize ang text sa Screen 2 gamit ang name ni Khylle
         dynamicRecipient.textContent = userData.recipientName;
-
-        // I-render na ang cards dynamically sa screen
         renderQuestionCards();
 
-        // Switch Screen seamlessly
         screenLanding.classList.remove("active");
         screenQuestions.classList.add("active");
     });
 
-    // 2. Function para mag-generate sang Premium Cards dynamically
     function renderQuestionCards() {
-        questionsGrid.innerHTML = ""; // Clear wrapper standard check
+        questionsGrid.innerHTML = "";
         
         masterQuestions.forEach(q => {
             const card = document.createElement("div");
@@ -53,24 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
             card.style.transition = "all 0.2s ease";
             card.innerHTML = `
                 <div style="display:flex; justify-content:space-between; align-items:center; text-align:left;">
-                    <p style="font-weight:500; font-size:0.95rem; padding-right:10px;">${q.text}</p>
+                    <p style="font-weight:500; font-size:0.95rem; padding-right:10px; margin:0;">${q.text}</p>
                     <span class="checkbox-indicator" style="color: #ccc;"><i class="fa-regular fa-circle"></i></span>
                 </div>
             `;
 
-            // Card click toggle state engine
             card.addEventListener("click", () => {
                 const index = selectedQuestions.indexOf(q.id);
                 
                 if (index > -1) {
-                    // Kung i-uncheck
                     selectedQuestions.splice(index, 1);
                     card.style.borderColor = "rgba(255, 255, 255, 0.4)";
                     card.style.background = "rgba(255, 255, 255, 0.75)";
                     card.querySelector(".checkbox-indicator").innerHTML = `<i class="fa-regular fa-circle"></i>`;
                     card.querySelector(".checkbox-indicator").style.color = "#ccc";
                 } else {
-                    // Kung i-check pero dapat max 3 gid lang
                     if (selectedQuestions.length < 3) {
                         selectedQuestions.push(q.id);
                         card.style.borderColor = "#FF69B4";
@@ -79,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
 
-                // Update system counters & validation state
                 questionCounter.textContent = `❤️ Selected: ${selectedQuestions.length} / 3`;
                 
                 if (selectedQuestions.length === 3) {
