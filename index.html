@@ -29,7 +29,9 @@
 
             <div class="glass-card">
                 <div class="avatar-wrapper">
-                    <img src="assets/bear.gif" alt="🐻" class="brand-avatar">
+                    <div class="brand-avatar-placeholder">
+                        <i class="fa-solid fa-heart-envelope" style="font-size: 2.2rem; color: var(--deep-pink); animation: heartbeat 1.5s infinite;"></i>
+                    </div>
                 </div>
 
                 <form id="senderForm" autocomplete="off">
@@ -60,16 +62,58 @@
             <div class="brand-header">
                 <span class="brand-badge" id="questionCounter">❤️ Selected: 0 / 3</span>
                 <h1 class="brand-tagline">Choose 3 Questions</h1>
-                <p class="brand-subtext">Pick the perfect prompts for <span id="dynamicRecipient" style="font-weight:600; color:var(--deep-pink);"></span></p>
+                <p class="brand-subtext">Pick the perfect prompts for <span class="recipient-display-name" style="font-weight:600; color:var(--deep-pink);"></span></p>
             </div>
 
-            <div class="questions-grid" id="questionsGrid">
-                <!-- Dynamic cards mapuno halin sa JS -->
-            </div>
+            <div class="questions-grid" id="questionsGrid"></div>
 
             <button type="button" class="btn btn-primary" id="btnContinueToFlow" disabled style="opacity: 0.5; margin-top: 20px;">
                 Perfect! Continue <i class="fa-solid fa-arrow-right"></i>
             </button>
+        </section>
+
+        <!-- ✨ NEW! SCREEN 3: RECIPIENT WELCOME INTRO -->
+        <section class="screen" id="screen-recipient-intro">
+            <div class="brand-header animate-fade-in">
+                <span class="brand-badge">🌸 Invitation Unlocked</span>
+                <h1 class="brand-tagline">Hi <span class="recipient-display-name"></span>!</h1>
+            </div>
+
+            <div class="glass-card">
+                <div class="avatar-wrapper">
+                    <div class="heart-container-pulse">
+                        <i class="fa-solid fa-heart animate-pop" style="font-size: 3rem; color: var(--primary-pink);"></i>
+                    </div>
+                </div>
+                <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px; font-weight: 500;">
+                    <span id="senderDisplayName" style="color: var(--deep-pink); font-weight: 700;"></span> has prepared something very special just for you...
+                </p>
+                <button type="button" class="btn btn-primary" id="btnStartAnswering">
+                    Open Invitation <i class="fa-solid fa-envelope-open-heart"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ✨ NEW! SCREEN 4: INDIVIDUAL QUESTION DISPLAY LOOP -->
+        <section class="screen" id="screen-question-viewer">
+            <div class="brand-header">
+                <span class="brand-badge" id="viewerStepCounter">Question 1 of 3</span>
+                <h1 class="brand-tagline">For You...</h1>
+            </div>
+
+            <div class="glass-card text-left">
+                <!-- Diri ma flash ang text sang active selected question -->
+                <h3 id="currentQuestionText" style="font-size: 1.15rem; font-weight: 600; line-height: 1.5; margin-bottom: 20px; text-align: center; color: var(--text-dark);"></h3>
+                
+                <div class="input-group" style="margin-bottom: 0;">
+                    <label for="recipientAnswerField"><i class="fa-regular fa-comment-dots"></i> Your Answer</label>
+                    <textarea id="recipientAnswerField" rows="4" placeholder="Write your heartfelt answer here..." required style="width:100%; padding:14px; background:rgba(255,255,255,0.5); border:1px solid rgba(255,105,180,0.2); border-radius:12px; font-size:1rem; outline:none; resize:none; font-family:inherit; transition:all 0.3s;"></textarea>
+                </div>
+
+                <button type="button" class="btn btn-primary" id="btnNextQuestion" style="margin-top: 20px;">
+                    Next Question <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
         </section>
 
     </main>
