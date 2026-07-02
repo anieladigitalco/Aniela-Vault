@@ -114,11 +114,21 @@ body {
     margin-bottom: 24px;
 }
 
-.brand-avatar {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
+/* 🐻 Custom Placeholder Ring */
+.brand-avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 192, 203, 0.3);
+    border: 2px dashed var(--primary-pink);
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.heart-container-pulse {
+    animation: float 4s ease-in-out infinite alternate;
 }
 
 .input-group {
@@ -151,9 +161,9 @@ body {
     transition: all 0.3s ease;
 }
 
-.input-group input:focus {
-    border-color: var(--primary-pink);
-    background: rgba(255, 255, 255, 0.9);
+.input-group input:focus, .input-group textarea:focus {
+    border-color: var(--primary-pink) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
     box-shadow: 0 0 10px rgba(255, 105, 180, 0.15);
 }
 
