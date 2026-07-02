@@ -1,126 +1,600 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aniela Vault | Interactive Experiences</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Plus+Jakarta+Sans:wght=400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aniela Vault | Create Meaningful Moments</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="ambient-background">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-    </div>
+<div class="ambient-background">
+<div class="glow-orb orb-1"></div>
+<div class="glow-orb orb-2"></div>
+</div>
 
-    <main class="app-container">
-        
-        <!-- SCREEN 1: LANDING & SENDER FORM -->
-        <section class="screen active" id="screen-landing">
-            <div class="brand-header">
-                <span class="brand-badge">✨ Aniela Vault</span>
-                <h1 class="brand-tagline">Interactive Curator</h1>
-                <p class="brand-subtext">Build a premium, customized experience profile.</p>
-            </div>
+<main class="app-container">
 
-            <div class="glass-card">
-                <div class="avatar-wrapper">
-                    <div class="brand-avatar-frame">
-                        <span style="font-size: 2.8rem; animation: float 3s ease-in-out infinite alternate;">🐻</span>
-                    </div>
-                </div>
+<!-- ========================= -->
+<!-- SCREEN 1 : SENDER FORM -->
+<!-- ========================= -->
 
-                <form id="senderForm" autocomplete="off">
-                    <div class="input-group">
-                        <label for="senderName"><i class="fa-regular fa-user"></i> Your Name</label>
-                        <input type="text" id="senderName" placeholder="e.g., Angel" required>
-                    </div>
+<section class="screen active" id="screen-landing">
 
-                    <div class="input-group">
-                        <label for="senderEmail"><i class="fa-regular fa-envelope"></i> Your Email</label>
-                        <input type="email" id="senderEmail" placeholder="name@example.com" required>
-                    </div>
+<div class="brand-header">
 
-                    <div class="input-group">
-                        <label for="recipientName"><i class="fa-solid fa-heart-pulse"></i> Recipient's Name</label>
-                        <input type="text" id="recipientName" placeholder="e.g., Sophia" required>
-                    </div>
+<span class="brand-badge">
+✨ Aniela Vault
+</span>
 
-                    <button type="submit" class="btn btn-primary">
-                        Continue <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </form>
-            </div>
-        </section>
+<h1 class="brand-tagline">
+Create Meaningful Moments
+</h1>
 
-        <!-- SCREEN 2: QUESTION SELECTION -->
-        <section class="screen" id="screen-questions">
-            <div class="brand-header">
-                <span class="brand-badge" id="questionCounter">✨ Selected: 0 / 3</span>
-                <h1 class="brand-tagline">Select 3 Prompts</h1>
-                <p class="brand-subtext">Pick the perfect topics for <span class="recipient-display-name" style="font-weight:600; color:var(--deep-pink);"></span></p>
-            </div>
+<p class="brand-subtext">
+Create a personalized interactive experience for someone special.
+</p>
 
-            <div class="questions-grid" id="questionsGrid"></div>
+</div>
 
-            <button type="button" class="btn btn-primary" id="btnContinueToFlow" disabled style="opacity: 0.5; margin-top: 20px;">
-                Confirm & Continue <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </section>
+<div class="glass-card">
 
-        <!-- SCREEN 3: RECIPIENT WELCOME INTRO -->
-        <section class="screen" id="screen-recipient-intro">
-            <div class="brand-header">
-                <span class="brand-badge">🔒 Session Unlocked</span>
-                <h1 class="brand-tagline">Hello <span class="recipient-display-name"></span>!</h1>
-            </div>
+<div class="avatar-wrapper">
 
-            <div class="glass-card">
-                <div class="avatar-wrapper">
-                    <div class="brand-avatar-frame">
-                        <span style="font-size: 2.8rem; animation: heartbeat 1.5s infinite;">🐻</span>
-                    </div>
-                </div>
-                <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px; font-weight: 500;">
-                    <span id="senderDisplayName" style="color: var(--deep-pink); font-weight: 700;"></span> has initialized a personalized set of questions for you.
-                </p>
-                <button type="button" class="btn btn-primary" id="btnStartAnswering">
-                    Start Session <i class="fa-solid fa-bolt"></i>
-                </button>
-            </div>
-        </section>
+<div class="brand-avatar-frame">
 
-        <!-- SCREEN 4: INDIVIDUAL QUESTION DISPLAY LOOP -->
-        <section class="screen" id="screen-question-viewer">
-            <div class="brand-header">
-                <span class="brand-badge" id="viewerStepCounter">Prompt 1 of 3</span>
-                <h1 class="brand-tagline">Let's Answer...</h1>
-            </div>
+<span class="bear-icon">
+🐻
+</span>
 
-            <div class="glass-card text-left">
-                <h3 id="currentQuestionText" style="font-size: 1.2rem; font-weight: 600; line-height: 1.5; margin-bottom: 24px; text-align: center; color: var(--text-dark);"></h3>
-                
-                <div class="input-group" style="margin-bottom: 0;">
-                    <label for="recipientAnswerField"><i class="fa-regular fa-comment-dots"></i> Type your response here:</label>
-                    <textarea id="recipientAnswerField" rows="4" placeholder="Write your response..." required style="width:100%; padding:14px; background:rgba(255,255,255,0.5); border:1px solid rgba(255,105,180,0.2); border-radius:12px; font-size:1rem; outline:none; resize:none; font-family:inherit; transition:all 0.3s;"></textarea>
-                </div>
+</div>
 
-                <button type="button" class="btn btn-primary" id="btnNextQuestion" style="margin-top: 25px;">
-                    Next Prompt <i class="fa-solid fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
+</div>
 
-    </main>
+<form id="senderForm" autocomplete="off">
 
-    <footer class="brand-footer">
-        <p>Powered by <span class="company-name">Aniela Digital Co.</span></p>
-    </footer>
+<div class="input-group">
 
-    <script src="script.js"></script>
-</body>
-</html>
+<label for="senderName">
+
+<i class="fa-regular fa-user"></i>
+
+Your Name
+
+</label>
+
+<input
+type="text"
+id="senderName"
+placeholder="e.g., Travis"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label for="senderEmail">
+
+<i class="fa-regular fa-envelope"></i>
+
+Your Email
+
+</label>
+
+<input
+type="email"
+id="senderEmail"
+placeholder="name@example.com"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label for="recipientName">
+
+<i class="fa-solid fa-heart"></i>
+
+Recipient Name
+
+</label>
+
+<input
+type="text"
+id="recipientName"
+placeholder="e.g., Aniela"
+required>
+
+</div>
+
+<div class="input-group">
+
+<label for="welcomeMessage">
+
+<i class="fa-regular fa-message"></i>
+
+Welcome Message
+
+</label>
+
+<textarea
+id="welcomeMessage"
+rows="5"
+placeholder="Write a heartfelt welcome message..."></textarea>
+
+</div>
+
+<button
+type="submit"
+class="btn btn-primary">
+
+Continue
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SCREEN 2 : SELECT QUESTIONS -->
+<!-- ========================= -->
+
+<section class="screen" id="screen-questions">
+
+<div class="brand-header">
+
+<span
+class="brand-badge"
+id="questionCounter">
+
+✨ Selected 0 / 3
+
+</span>
+
+<h1 class="brand-tagline">
+
+Choose 3 Questions
+
+</h1>
+
+<p class="brand-subtext">
+
+Select three questions that you want
+
+<span
+class="recipient-display-name">
+</span>
+
+to answer.
+
+</p>
+
+</div>
+
+<div
+class="questions-grid"
+id="questionsGrid">
+
+<!-- Questions generated by JavaScript -->
+
+</div>
+
+<button
+class="btn btn-primary"
+id="btnGenerateLink"
+disabled>
+
+Generate Link
+
+<i class="fa-solid fa-link"></i>
+
+</button>
+
+</section>
+<!-- ========================= -->
+<!-- SCREEN 3 : GENERATE LINK -->
+<!-- ========================= -->
+
+<section class="screen" id="screen-copy-link">
+
+<div class="brand-header">
+
+<span class="brand-badge">
+
+🔗 Experience Ready
+
+</span>
+
+<h1 class="brand-tagline">
+
+Share Your Link
+
+</h1>
+
+<p class="brand-subtext">
+
+Your personalized experience has been created successfully.
+
+</p>
+
+</div>
+
+<div class="glass-card">
+
+<div class="avatar-wrapper">
+
+<div class="brand-avatar-frame">
+
+<span class="bear-icon">
+
+📨
+
+</span>
+
+</div>
+
+</div>
+
+<p class="copy-description">
+
+Copy the link below and send it to
+
+<strong class="recipient-display-name"></strong>
+
+</p>
+
+<div class="input-group">
+
+<label for="generatedLink">
+
+<i class="fa-solid fa-link"></i>
+
+Personalized Link
+
+</label>
+
+<input
+type="text"
+id="generatedLink"
+readonly>
+
+</div>
+
+<div class="button-group">
+
+<button
+type="button"
+class="btn btn-primary"
+id="btnCopyLink">
+
+<i class="fa-regular fa-copy"></i>
+
+Copy Link
+
+</button>
+
+</div>
+
+<p
+id="copyStatus"
+class="copy-status">
+
+✅ Link copied successfully!
+
+</p>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SCREEN 4 : RECIPIENT -->
+<!-- ========================= -->
+
+<section class="screen" id="screen-recipient-intro">
+
+<div class="brand-header">
+
+<span class="brand-badge">
+
+💌 Welcome
+
+</span>
+
+<h1 class="brand-tagline">
+
+Hello,
+
+<span class="recipient-display-name"></span>
+
+👋
+
+</h1>
+
+<p class="brand-subtext">
+
+Someone created a personalized experience just for you.
+
+</p>
+
+</div>
+
+<div class="glass-card">
+
+<div class="avatar-wrapper">
+
+<div class="brand-avatar-frame">
+
+<span class="bear-icon">
+
+🐻
+
+</span>
+
+</div>
+
+</div>
+
+<p class="welcome-title">
+
+A message from
+
+<strong id="senderDisplayName"></strong>
+
+</p>
+
+<div class="welcome-message-box">
+
+<p id="displayWelcomeMessage">
+
+Your personalized message will appear here.
+
+</p>
+
+</div>
+
+<button
+type="button"
+class="btn btn-primary"
+id="btnStartQuestions">
+
+Start Answering
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- SCREEN 5 : QUESTION VIEWER -->
+<!-- ========================= -->
+
+<section class="screen" id="screen-question-viewer">
+
+<div class="brand-header">
+
+<span class="brand-badge" id="viewerStepCounter">
+Question 1 of 3
+</span>
+
+<h1 class="brand-tagline">
+Answer Honestly
+</h1>
+
+<p class="brand-subtext">
+Take your time and answer from the heart.
+</p>
+
+</div>
+
+<div class="glass-card">
+
+<h2 id="currentQuestionText" class="question-title"></h2>
+
+<div class="input-group">
+
+<label for="recipientAnswerField">
+
+<i class="fa-regular fa-comment-dots"></i>
+
+Your Answer
+
+</label>
+
+<textarea
+id="recipientAnswerField"
+rows="5"
+placeholder="Type your answer here..."
+required></textarea>
+
+</div>
+
+<button
+type="button"
+class="btn btn-primary"
+id="btnNextQuestion">
+
+Next
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SCREEN 6 : FINAL QUESTION -->
+<!-- ========================= -->
+
+<section class="screen" id="screen-final-question">
+
+<div class="brand-header">
+
+<span class="brand-badge">
+❤️ Final Question
+</span>
+
+<h1 class="brand-tagline">
+One Last Question...
+</h1>
+
+<p class="brand-subtext">
+Before you go...
+</p>
+
+</div>
+
+<div class="glass-card">
+
+<h2
+id="finalQuestionText"
+class="final-question-title">
+
+Would you like to go on a date with me? 🥹❤️
+
+</h2>
+
+<div class="button-group">
+
+<button
+class="btn btn-primary"
+id="btnYes">
+
+YES ❤️
+
+</button>
+
+<button
+class="btn btn-secondary"
+id="btnMaybe">
+
+Maybe Next Time 🌸
+
+</button>
+
+<button
+class="btn btn-secondary"
+id="btnNo">
+
+No 🙈
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SCREEN 7 : THANK YOU -->
+<!-- ========================= -->
+
+<section class="screen" id="screen-thank-you">
+
+<div class="brand-header">
+
+<span class="brand-badge">
+🎉 Completed
+</span>
+
+<h1 class="brand-tagline">
+
+Thank You!
+
+</h1>
+
+<p class="brand-subtext">
+
+Your response has been submitted successfully.
+
+</p>
+
+</div>
+
+<div class="glass-card">
+
+<div class="avatar-wrapper">
+
+<div class="brand-avatar-frame">
+
+<span class="bear-icon">
+
+🐻💖
+
+</span>
+
+</div>
+
+</div>
+
+<p class="thankyou-message">
+
+Thank you for taking the time to answer.
+
+We hope this little experience made you smile.
+
+✨
+
+</p>
+
+<button
+type="button"
+class="btn btn-primary"
+id="btnFinish">
+
+Finish
+
+</button>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="brand-footer">
+
+<p>
+
+Powered by
+
+<footer class="brand-footer">
+
+<p>
+
+Powered by
+
+<span class="company-name">
+
+Aniela Digital Co.
+
+</span>
+
+</p>
+
+<p class="version">
+
+Version 1.0
+
+</p>
+
+</footer>
