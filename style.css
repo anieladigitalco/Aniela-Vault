@@ -1,17 +1,218 @@
-/* ==========================================
-   ✨ SCREEN 2: QUESTION PICKER STYLING
-   ========================================== */
+:root {
+    --bg-gradient: linear-gradient(135deg, #FFF0F5 0%, #E6E6FA 50%, #FFD1DC 100%);
+    --primary-pink: #FF69B4;
+    --deep-pink: #FF1493;
+    --lavender: #9370DB;
+    --soft-white: rgba(255, 255, 255, 0.75);
+    --card-border: rgba(255, 255, 255, 0.4);
+    --text-dark: #4A3B43;
+    --text-light: #8B737E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    color: var(--text-dark);
+}
+
+.ambient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: float 8s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+    top: -10%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: var(--primary-pink);
+}
+
+.orb-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: var(--lavender);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 24px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.glass-card {
+    background: var(--soft-white);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.2);
+    text-align: center;
+}
+
+.brand-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.brand-badge {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 105, 180, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--deep-pink);
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.brand-tagline {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.3rem;
+    color: var(--deep-pink);
+    margin-bottom: 8px;
+}
+
+.brand-subtext {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.avatar-wrapper {
+    margin-bottom: 24px;
+}
+
+.brand-avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.input-group label i {
+    margin-right: 6px;
+    color: var(--primary-pink);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 105, 180, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-pink);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.15);
+}
+
+.btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--deep-pink) 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+.brand-footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    width: 100%;
+}
+
+.company-name {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.heart-pulse {
+    display: inline-block;
+    animation: heartbeat 1.2s infinite;
+    color: var(--deep-pink);
+}
+
+/* 📱 SCREEN 2: QUESTIONS SPECIFIC */
 .questions-grid {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 20px;
-    max-height: 320px; /* Para indi mag-sobra kalaba sa mobile screens */
-    overflow-y: auto; /* Magka-scrollbar extension kon kinahanglan */
+    max-height: 280px;
+    overflow-y: auto;
     padding-right: 4px;
 }
 
-/* Custom Scrollbar para elegant gihapon tulukon */
 .questions-grid::-webkit-scrollbar {
     width: 6px;
 }
@@ -25,7 +226,7 @@
 }
 
 .question-card {
-    border: 2px solid rgba(255, 255, 255, 0.4) !important; /* Overwrite card default borders */
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
     transform: scale(1);
 }
 
@@ -34,7 +235,6 @@
     box-shadow: 0 6px 15px rgba(255, 182, 193, 0.3);
 }
 
-/* Pag click sang card active micro-interaction */
 .question-card:active {
     transform: scale(0.98);
 }
@@ -44,4 +244,25 @@
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    20% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
 }
